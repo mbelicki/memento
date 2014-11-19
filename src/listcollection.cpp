@@ -26,7 +26,7 @@ void ListCollection::createNewList
     if (list != NULL) {
         _lists.insert(id, list);
         _order.add(id);
-        calculateColors();
+        //calculateColors();
     } else {
         //qDebug() << "allocation failed";
     }

@@ -5,7 +5,7 @@
     <name>FirstPage</name>
     <message>
         <source>Show Page 2</source>
-        <translation>Zur Seite 2</translation>
+        <translation type="obsolete">Zur Seite 2</translation>
     </message>
     <message>
         <source>UI Template</source>
@@ -15,12 +15,26 @@
         <source>Hello Sailors</source>
         <translation type="obsolete">Hallo Matrosen</translation>
     </message>
+</context>
+<context>
+    <name>ItemsListPage</name>
     <message>
-        <source>Test</source>
+        <source>settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>unknown</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ListsListPage</name>
+    <message>
         <source> items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add List</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -29,14 +43,6 @@
     <message>
         <source>Nested Page</source>
         <translation type="obsolete">Unterseite</translation>
-    </message>
-    <message>
-        <source>unknown</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>settings</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

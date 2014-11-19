@@ -22,13 +22,15 @@ SOURCES += src/memento.cpp \
 
 OTHER_FILES += qml/memento.qml \
     qml/cover/CoverPage.qml \
-    qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
     rpm/memento.changes.in \
     rpm/memento.spec \
     rpm/memento.yaml \
     translations/*.ts \
-    memento.desktop
+    memento.desktop \
+    qml/components/CreateListDialog.qml \
+    qml/components/ListsListDelegate.qml \
+    qml/pages/ListsListPage.qml \
+    qml/pages/ItemsListPage.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line

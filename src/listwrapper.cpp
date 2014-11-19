@@ -43,3 +43,10 @@ QVariant ListWrapper::data(const QModelIndex &index, int role) const
     return result;
 }
 
+void ListWrapper::addTaskList(const QString &name)
+{
+    int index = _collection->count();
+    beginInsertRows(QModelIndex(), index, index);
+    _collection->createNewList(name, QColor(Qt::cyan));
+    endInsertRows();
+}

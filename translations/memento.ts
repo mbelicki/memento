@@ -2,28 +2,24 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>FirstPage</name>
+    <name>ItemsListPage</name>
     <message>
-        <source>Show Page 2</source>
+        <source>settings</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Test</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> items</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SecondPage</name>
     <message>
         <source>unknown</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>ListsListPage</name>
     <message>
-        <source>settings</source>
+        <source> items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add List</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

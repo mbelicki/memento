@@ -17,9 +17,7 @@ public:
     QVariant data(const QModelIndex &index, int role) const;
     QHash<int, QByteArray> roleNames() const;
 
-signals:
-
-public slots:
+    Q_INVOKABLE void addTaskList(const QString &name);
 
 private:
     enum Roles
