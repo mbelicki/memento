@@ -28,6 +28,9 @@ void ListCollection::createNewList
     if (list != NULL) {
         _lists.insert(id, list);
         _order.add(id);
+
+        createNewItemInList(id, "hello,");
+        createNewItemInList(id, "world!");
     } else {
         //qDebug() << "allocation failed";
     }
@@ -70,7 +73,7 @@ QObject *ListCollection::createListModel(unsigned int id)
 {
     if (_lists.contains(id) == false)
         return NULL;
-    return new ItemsListModel(_lists[id]);
+    return new ItemsListModel(_lists[id], this);
 }
 
 const TaskList *ListCollection::at(int index) const

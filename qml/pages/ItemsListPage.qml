@@ -22,14 +22,19 @@ Page {
             id: delegate
             color: appModel.activeList ? appModel.activeList.color : "white"
             onClicked: {
-                console.log("Clicked " + index)
+                console.log("Clicked " + itemId)
             }
         }
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("settings")
-                onClicked: console.log("no settings yet.")
+                text: qsTr("Add Item")
+                onClicked: {
+                    var dialog = pageStack.push("../components/CreateItemDialog.qml")
+                    dialog.accepted.connect(function() {
+                        page.model.createItem(dialog.name)
+                    })
+                }
             }
         }
 

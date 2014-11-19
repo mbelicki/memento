@@ -35,7 +35,7 @@ public:
         emit sizeChanged();
     }
 
-    inline const Item *at(entityid_t id) const { return _items[id]; }
+    const Item *at(int i) const;
 
     void changeColor(const QColor &color);
 

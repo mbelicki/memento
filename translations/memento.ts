@@ -4,11 +4,11 @@
 <context>
     <name>ItemsListPage</name>
     <message>
-        <source>settings</source>
+        <source>unknown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>unknown</source>
+        <source>Add Item</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

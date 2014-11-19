@@ -32,7 +32,8 @@ OTHER_FILES += qml/memento.qml \
     qml/components/ListsListDelegate.qml \
     qml/pages/ListsListPage.qml \
     qml/pages/ItemsListPage.qml \
-    qml/components/ItemsListDelegate.qml
+    qml/components/ItemsListDelegate.qml \
+    qml/components/CreateItemDialog.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line

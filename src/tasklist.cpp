@@ -14,13 +14,22 @@ TaskList::~TaskList()
 
 bool TaskList::addItem(const Item &item)
 {
+    const entityid_t id = item.id();
+
     const Item *ownedItem = new (std::nothrow) Item(item);
     if (ownedItem == NULL) return false;
 
-    _items.insert(ownedItem->id(), ownedItem);
+    _items.insert(id, ownedItem);
+    _order.add(id);
     emit sizeChanged();
 
     return true;
+}
+
+const Item *TaskList::at(int i) const
+{
+    const entityid_t id = _order.at(i);
+    return _items[id];
 }
 
 void TaskList::changeColor(const QColor &color)

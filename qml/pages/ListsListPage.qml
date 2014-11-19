@@ -31,8 +31,8 @@ Page {
         delegate: Memento.ListsListDelegate {
             onClicked: {
                 if (appModel.setActiveList(listId)) {
-                    var page = pageStack.push(Qt.resolvedUrl("ItemsListPage.qml"))
-                    page.model = appModel.createListModel(listId)
+                    var model = appModel.createListModel(listId)
+                    var page = pageStack.push(Qt.resolvedUrl("ItemsListPage.qml"), {"model": model})
                 }
             }
         }

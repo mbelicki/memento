@@ -29,7 +29,7 @@ BackgroundItem {
 
     Label {
         x: Theme.paddingLarge
-        text: "Item " + index
+        text: name
         anchors.verticalCenter: parent.verticalCenter
         color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
     }
