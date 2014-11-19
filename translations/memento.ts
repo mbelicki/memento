@@ -4,10 +4,6 @@
 <context>
     <name>ItemsListPage</name>
     <message>
-        <source>unknown</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Add Item</source>
         <translation type="unfinished"></translation>
     </message>

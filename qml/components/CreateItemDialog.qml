@@ -3,6 +3,7 @@ import Sailfish.Silica 1.0
 
 Dialog {
     property string name
+    canAccept: !!nameField.text
 
     Column {
         spacing: 10
@@ -15,8 +16,10 @@ Dialog {
         TextField {
             id: nameField
             width: parent.width
-            label: "item name"
+            placeholderText: "Enter Item Name"
+            label: "Item Name"
             text: name
+            focus: true
 
             EnterKey.enabled: text.length > 0
             EnterKey.iconSource: "image://theme/icon-m-enter-accept"

@@ -20,7 +20,7 @@ Page {
                 text: listOfLists.count + qsTr(" lists")
 
                 x: 30
-                width: parent.width - x - details.width
+                width: parent.width - x
                 height: parent.height
                 verticalAlignment: Text.AlignVCenter
                 color: Theme.highlightColor

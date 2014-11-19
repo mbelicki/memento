@@ -28,11 +28,6 @@ void ListCollection::createNewList
     if (list != NULL) {
         _lists.insert(id, list);
         _order.add(id);
-
-        createNewItemInList(id, "hello,");
-        createNewItemInList(id, "world!");
-    } else {
-        //qDebug() << "allocation failed";
     }
 }
 

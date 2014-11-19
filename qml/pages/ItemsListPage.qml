@@ -14,13 +14,13 @@ Page {
         anchors.fill: parent
 
         header: PageHeader {
-            title: appModel.activeList ? appModel.activeList.name : qsTr("unknown")
+            title: page.model.name
             description: "6 open tasks (3 done, 9 total)"
         }
 
         delegate: Memento.ItemsListDelegate {
             id: delegate
-            color: appModel.activeList ? appModel.activeList.color : "white"
+            color: page.model.color
             onClicked: {
                 console.log("Clicked " + itemId)
             }

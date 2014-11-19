@@ -51,9 +51,6 @@ int main(int argc, char *argv[])
     //return SailfishApp::main(argc, argv);
 
     ListCollection model;
-    model.createNewList("Work stuff", QColor("red"));
-    model.createNewList("To be done later", QColor("gray"));
-
     ListsListModel wrapper(&model);
 
     QGuiApplication *app = SailfishApp::application(argc, argv);
