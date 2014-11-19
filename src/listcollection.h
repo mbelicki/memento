@@ -24,21 +24,20 @@ public:
             ( const QString &name
             , const QColor &color
             );
-    void createNewItemInList
+    Q_INVOKABLE void createNewItemInList
             ( entityid_t listId
-            , const QString &itemText
-            , const QDateTime &itemDueTime
+            , const QString &itemName
             );
 
-    Q_INVOKABLE QList<QObject *> getOrderedLists() const;
     Q_INVOKABLE bool setActiveList(unsigned int /*entityid_t*/ id);
-    Q_INVOKABLE bool setActiveItem(unsigned int /*entityid_t*/ id);
+    Q_INVOKABLE QObject *createListModel(unsigned int id);
 
+    Q_INVOKABLE QList<QObject *> getOrderedLists() const;
     inline QObject *activeList() const { return _activeList; }
 
     const TaskList *at(int index) const;
 
-    inline int count() const { return _lists.count(); }
+    inline int size() const { return _lists.size(); }
 
 signals:
     void activeListChanged();
@@ -54,7 +53,6 @@ private:
     TaskList *_activeList;
 
     entityid_t getNextId();
-    void calculateColors();
 };
 
 #endif // LISTCOLLECTION_H

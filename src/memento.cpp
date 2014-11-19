@@ -35,7 +35,7 @@
 #include <sailfishapp.h>
 
 #include "listcollection.h"
-#include "listwrapper.h"
+#include "listslistmodel.h"
 
 int main(int argc, char *argv[])
 {
@@ -53,17 +53,8 @@ int main(int argc, char *argv[])
     ListCollection model;
     model.createNewList("Work stuff", QColor("red"));
     model.createNewList("To be done later", QColor("gray"));
-    //model.createNewList("Others", QColor("yellow"));
-    //model.createNewList("Random stuff", QColor("green"));
-    //model.createNewList("A very long and quite random stuff", QColor("blue"));
-    //model.createNewList("A test", QColor("purple"));
-    //model.createNewList("Another test", QColor("black"));
-    //model.createNewList("Yet Another test", QColor("gray"));
-    //model.createNewList("Maybe", QColor("pink"));
-    //model.createNewList("A test", QColor("purple"));
-    //model.createNewList("A very long and quite random stuff", QColor("lightblue"));
 
-    ListWrapper wrapper(&model);
+    ListsListModel wrapper(&model);
 
     QGuiApplication *app = SailfishApp::application(argc, argv);
     QQuickView *view = SailfishApp::createView();

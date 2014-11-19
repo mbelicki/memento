@@ -17,7 +17,9 @@ bool TaskList::addItem(const Item &item)
     const Item *ownedItem = new (std::nothrow) Item(item);
     if (ownedItem == NULL) return false;
 
-    _items.insert(ownedItem->getId(), ownedItem);
+    _items.insert(ownedItem->id(), ownedItem);
+    emit sizeChanged();
+
     return true;
 }
 

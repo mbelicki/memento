@@ -1,5 +1,7 @@
 #include "listcollection.h"
 
+#include "itemslistmodel.h"
+
 ListCollection::ListCollection()
     : _topColor(QColor("red"))
     , _bottomColor(QColor("yellow"))
@@ -26,18 +28,22 @@ void ListCollection::createNewList
     if (list != NULL) {
         _lists.insert(id, list);
         _order.add(id);
-        //calculateColors();
     } else {
         //qDebug() << "allocation failed";
     }
 }
 
 void ListCollection::createNewItemInList
-            ( entityid_t listId
-            , const QString &itemText
-            , const QDateTime &itemDueTime
+            (entityid_t listId
+            , const QString &itemName
             )
 {
+    if (_lists.contains(listId) == false)
+        return;
+
+    Item item(getNextId(), itemName);
+    _lists[listId]->addItem(item);
+
 }
 
 bool ListCollection::setActiveList(unsigned int id)
@@ -60,9 +66,11 @@ bool ListCollection::setActiveList(unsigned int id)
     return result;
 }
 
-bool ListCollection::setActiveItem(unsigned int id)
+QObject *ListCollection::createListModel(unsigned int id)
 {
-    return false;
+    if (_lists.contains(id) == false)
+        return NULL;
+    return new ItemsListModel(_lists[id]);
 }
 
 const TaskList *ListCollection::at(int index) const
@@ -89,23 +97,4 @@ entityid_t ListCollection::getNextId()
     entityid_t id = _nextId;
     _nextId++;
     return id;
-}
-
-void ListCollection::calculateColors()
-{
-    int count = _lists.count();
-    for (int i = 0; i < count; i++) {
-        QColor color;
-
-        const int reverseIndex = count - i;
-        const int r = (_topColor.red() * reverseIndex + _bottomColor.red() * i) / count;
-        const int g = (_topColor.green() * reverseIndex + _bottomColor.green() * i) / count;
-        const int b = (_topColor.blue() * reverseIndex + _bottomColor.blue() * i) / count;
-
-        color.setRgb(r, g, b);
-
-        entityid_t id = _order.at(i);
-        TaskList *list = _lists[id];
-        list->changeColor(color);
-    }
 }

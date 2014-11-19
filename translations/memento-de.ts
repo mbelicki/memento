@@ -30,11 +30,11 @@
 <context>
     <name>ListsListPage</name>
     <message>
-        <source> items</source>
+        <source>Add List</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add List</source>
+        <source> lists</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

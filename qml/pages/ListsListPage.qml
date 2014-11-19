@@ -17,7 +17,7 @@ Page {
             width: parent.width
 
             Text {
-                text: listOfLists.count + qsTr(" items")
+                text: listOfLists.count + qsTr(" lists")
 
                 x: 30
                 width: parent.width - x - details.width
@@ -31,7 +31,8 @@ Page {
         delegate: Memento.ListsListDelegate {
             onClicked: {
                 if (appModel.setActiveList(listId)) {
-                    pageStack.push(Qt.resolvedUrl("ItemsListPage.qml"))
+                    var page = pageStack.push(Qt.resolvedUrl("ItemsListPage.qml"))
+                    page.model = appModel.createListModel(listId)
                 }
             }
         }
@@ -42,7 +43,7 @@ Page {
                 onClicked: {
                     var dialog = pageStack.push("../components/CreateListDialog.qml")
                     dialog.accepted.connect(function() {
-                        listModel.addTaskList(dialog.name)
+                        listModel.addTaskList(dialog.name, dialog.color)
                     })
                 }
             }

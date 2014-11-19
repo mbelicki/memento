@@ -18,7 +18,8 @@ SOURCES += src/memento.cpp \
     src/tasklist.cpp \
     src/ordering.cpp \
     src/listcollection.cpp \
-    src/listwrapper.cpp
+    src/listslistmodel.cpp \
+    src/itemslistmodel.cpp
 
 OTHER_FILES += qml/memento.qml \
     qml/cover/CoverPage.qml \
@@ -30,7 +31,8 @@ OTHER_FILES += qml/memento.qml \
     qml/components/CreateListDialog.qml \
     qml/components/ListsListDelegate.qml \
     qml/pages/ListsListPage.qml \
-    qml/pages/ItemsListPage.qml
+    qml/pages/ItemsListPage.qml \
+    qml/components/ItemsListDelegate.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line
@@ -43,5 +45,6 @@ HEADERS += \
     src/tasklist.h \
     src/ordering.h \
     src/listcollection.h \
-    src/listwrapper.h
+    src/listslistmodel.h \
+    src/itemslistmodel.h
 
