@@ -7,6 +7,22 @@ BackgroundItem {
     width: parent.width
 
     Rectangle {
+        anchors.fill: parent
+        gradient: Gradient {
+            id: g
+            property color theme: Theme.highlightColor
+            GradientStop {
+                position: 0.0
+                color: Qt.rgba(g.theme.r, g.theme.g, g.theme.b, 0.1)
+            }
+            GradientStop {
+                position: 1.0
+                color: Qt.rgba(g.theme.r, g.theme.g, g.theme.b, 0)
+            }
+        }
+    }
+
+    Rectangle {
         id: details
 
         anchors.right: parent.right
@@ -28,14 +44,6 @@ BackgroundItem {
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: Theme.fontSizeHuge
         color: Theme.primaryColor
-    }
-
-    Rectangle {
-        height: 1
-        width: parent.width - details.width
-
-        color: listColor
-        opacity: 0.2
     }
 
     Text {

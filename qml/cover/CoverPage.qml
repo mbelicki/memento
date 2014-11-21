@@ -2,10 +2,18 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 CoverBackground {
+
     Label {
         id: label
-        anchors.centerIn: parent
-        text: "My Cover"
+
+        text: qsTr("Memento")
+
+        anchors.fill: parent
+        height: rowHeight
+        verticalAlignment: Text.AlignVCenter
+        horizontalAlignment: Text.AlignHCenter
+        color: Theme.highlightColor
+        font.pixelSize: Theme.fontSizeSmall
     }
 
     CoverActionList {
@@ -16,7 +24,7 @@ CoverBackground {
         }
 
         CoverAction {
-            iconSource: "image://theme/icon-cover-pause"
+            iconSource: "image://theme/icon-cover-new"
         }
     }
 }

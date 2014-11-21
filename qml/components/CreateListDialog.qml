@@ -3,7 +3,7 @@ import Sailfish.Silica 1.0
 
 Dialog {
     property string name
-    property color color: "cyan"
+    property color color
 
     canAccept: !!nameField.text
 
@@ -31,6 +31,9 @@ Dialog {
         ColorPicker {
             id: picker
             width: parent.width
+            opacity: 0.8
+
+            color: colors[Math.floor(Math.random() * colors.length)]
 
             rows: 3
             columns: 5

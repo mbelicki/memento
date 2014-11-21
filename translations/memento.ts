@@ -2,6 +2,13 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>CoverPage</name>
+    <message>
+        <source>Memento</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ItemsListPage</name>
     <message>
         <source>Add Item</source>

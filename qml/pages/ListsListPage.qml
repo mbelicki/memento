@@ -5,6 +5,20 @@ import "../components" as Memento
 Page {
     id: page
 
+    function monthToString(month) {
+        var months = [ "January", "February", "March", "April", "May"
+                     , "June", "July", "August", "September", "October"
+                     , "November", "December"
+                     ];
+        return months[month]
+    }
+
+    function createDefaultListName() {
+        var date = new Date()
+        var month = monthToString(date.getMonth())
+        return month + " " + date.getDate()
+    }
+
     SilicaListView {
 
         id: listOfLists
@@ -41,7 +55,10 @@ Page {
             MenuItem {
                 text: qsTr("Add List")
                 onClicked: {
-                    var dialog = pageStack.push("../components/CreateListDialog.qml")
+                    var defaultName = createDefaultListName()
+                    var dialog = pageStack.push( "../components/CreateListDialog.qml"
+                                               , {"name": defaultName}
+                                               )
                     dialog.accepted.connect(function() {
                         listModel.addTaskList(dialog.name, dialog.color)
                     })
