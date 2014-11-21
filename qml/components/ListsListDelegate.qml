@@ -1,25 +1,16 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "../components" as Memento
 
 BackgroundItem {
     id: delegate
     height: 90
     width: parent.width
 
-    Rectangle {
+    Memento.TransparetGradient {
         anchors.fill: parent
-        gradient: Gradient {
-            id: g
-            property color theme: Theme.highlightColor
-            GradientStop {
-                position: 0.0
-                color: Qt.rgba(g.theme.r, g.theme.g, g.theme.b, 0.1)
-            }
-            GradientStop {
-                position: 1.0
-                color: Qt.rgba(g.theme.r, g.theme.g, g.theme.b, 0)
-            }
-        }
+        color: Theme.highlightColor
+        maxOpacity: 0.07
     }
 
     Rectangle {

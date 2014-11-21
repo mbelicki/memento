@@ -3,8 +3,9 @@
 #include "itemslistmodel.h"
 
 ListCollection::ListCollection()
-    : _topColor(QColor("red"))
-    , _bottomColor(QColor("yellow"))
+    : _lists()
+    , _order()
+    , _nextId(0)
     , _activeList(NULL)
 {
 }

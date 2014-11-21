@@ -45,11 +45,7 @@ signals:
 private:
     QHash<entityid_t, TaskList *> _lists;
     Ordering _order;
-
     entityid_t _nextId;
-    QColor _topColor;
-    QColor _bottomColor;
-
     TaskList *_activeList;
 
     entityid_t getNextId();

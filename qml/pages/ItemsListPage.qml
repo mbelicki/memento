@@ -22,7 +22,7 @@ Page {
             id: delegate
             color: page.model.color
             onClicked: {
-                console.log("Clicked " + itemId)
+                page.model.setChecked(index, true)
             }
         }
 
