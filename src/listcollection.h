@@ -41,11 +41,15 @@ public:
 
     inline int size() const { return _lists.size(); }
 
+    bool setChecked(entityid_t itemId, bool value);
+
 signals:
     void activeListChanged();
 
 private:
     QHash<entityid_t, TaskList *> _lists;
+    QHash<entityid_t, Item *> _items;
+
     Ordering _order;
     entityid_t _nextId;
     TaskList *_activeList;

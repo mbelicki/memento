@@ -12,11 +12,17 @@ ListCollection::ListCollection()
 
 ListCollection::~ListCollection()
 {
-    QHash<entityid_t, TaskList *>::const_iterator it;
-    for (it = _lists.constBegin(); it != _lists.constEnd(); it++) {
-        delete it.value();
+    QHash<entityid_t, TaskList *>::const_iterator itl;
+    for (itl = _lists.constBegin(); itl != _lists.constEnd(); itl++) {
+        delete *itl;
     }
     _lists.clear();
+
+    QHash<entityid_t, Item *>::const_iterator iti;
+    for (iti = _items.constBegin(); iti != _items.constEnd(); iti++) {
+        delete *iti;
+    }
+    _items.clear();
 }
 
 const TaskList *ListCollection::createAndAddNewList
@@ -41,7 +47,8 @@ void ListCollection::createNewItemInList
     if (_lists.contains(listId) == false)
         return;
 
-    Item item(getNextId(), itemName);
+    Item *item = new Item(getNextId(), itemName);
+    _items[item->id()] = item;
     _lists[listId]->addItem(item);
 
 }
@@ -88,6 +95,15 @@ const TaskList *ListCollection::byId(entityid_t id) const
     if (_lists.contains(id))
         result = _lists[id];
     return result;
+}
+
+bool ListCollection::setChecked(entityid_t itemId, bool value)
+{
+    if (_items.contains(itemId) == false)
+        return false;
+
+    _items[itemId]->setDone(value);
+    return true;
 }
 
 QList<QObject *> ListCollection::getOrderedLists() const

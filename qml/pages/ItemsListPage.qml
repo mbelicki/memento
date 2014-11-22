@@ -25,7 +25,7 @@ Page {
             id: delegate
             color: page.model.color
             onClicked: {
-                page.model.setChecked(index, true)
+                page.model.setChecked(index, !itemDone)
             }
         }
 

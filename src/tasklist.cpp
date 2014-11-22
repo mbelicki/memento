@@ -15,14 +15,12 @@ TaskList::~TaskList()
    /* delete items */
 }
 
-bool TaskList::addItem(const Item &item)
+bool TaskList::addItem(const Item *item)
 {
-    const entityid_t id = item.id();
+    if (item == NULL) return false;
 
-    const Item *ownedItem = new (std::nothrow) Item(item);
-    if (ownedItem == NULL) return false;
-
-    _items.insert(id, ownedItem);
+    const entityid_t id = item->id();
+    _items.insert(id, item);
     _order.add(id);
     emit sizeChanged(_id);
 

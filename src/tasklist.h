@@ -29,7 +29,7 @@ public:
     inline int size() const { return _items.size(); }
     inline int doneCount() const { return _doneCount; }
 
-    bool addItem(const Item &item);
+    bool addItem(const Item *item);
     inline void removeItem(entityid_t id) {
         _items.remove(id);
         emit sizeChanged(_id);
