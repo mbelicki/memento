@@ -16,3 +16,8 @@ entityid_t Ordering::at(int i) const
 
     return _manualOrder.at(i);
 }
+
+int Ordering::indexOf(entityid_t id) const
+{
+    _manualOrder.indexOf(id);
+}

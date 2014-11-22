@@ -2,8 +2,11 @@
 
 TaskList::TaskList(entityid_t id, const QString &name, const QColor &color)
     : _id(id)
+    , _items()
     , _name(name)
     , _color(color)
+    , _order()
+    , _doneCount(0)
 {
 }
 
@@ -21,7 +24,7 @@ bool TaskList::addItem(const Item &item)
 
     _items.insert(id, ownedItem);
     _order.add(id);
-    emit sizeChanged();
+    emit sizeChanged(_id);
 
     return true;
 }
@@ -36,7 +39,20 @@ void TaskList::changeColor(const QColor &color)
 {
     if (_color != color) {
         _color = color;
-        colorChanged();
+        emit colorChanged(_id);
     }
 }
 
+void TaskList::updateDoneCount()
+{
+    int count = 0;
+    QHash<entityid_t, const Item *>::const_iterator it;
+    for (it = _items.constBegin(); it != _items.constEnd(); it++) {
+        count += (*it)->isDone();
+    }
+
+    if (count != _doneCount){
+        _doneCount = count;
+        emit doneCountChanged(_id);
+    }
+}

@@ -27,31 +27,33 @@ public:
     inline const QString &name() const { return _name; }
     inline const QColor &color() const { return _color; }
     inline int size() const { return _items.size(); }
-    inline int doneCount() const { return 0; }
+    inline int doneCount() const { return _doneCount; }
 
     bool addItem(const Item &item);
     inline void removeItem(entityid_t id) {
         _items.remove(id);
-        emit sizeChanged();
+        emit sizeChanged(_id);
     }
 
     const Item *at(int i) const;
 
     void changeColor(const QColor &color);
+    void updateDoneCount();
 
 signals:
-    void nameChanged();
-    void colorChanged();
-    void sizeChanged();
-    void doneCountChanged();
+    void nameChanged(entityid_t sender);
+    void colorChanged(entityid_t sender);
+    void sizeChanged(entityid_t sender);
+    void doneCountChanged(entityid_t sender);
 
 private:
-    const id_t _id;
+    const entityid_t _id;
 
     QHash<entityid_t, const Item *> _items;
     QString _name;
     QColor _color;
     Ordering _order;
+    int _doneCount;
 };
 
 #endif // TASKLIST_H

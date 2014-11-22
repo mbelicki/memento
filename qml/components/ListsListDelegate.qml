@@ -29,7 +29,7 @@ BackgroundItem {
         id: taskNumer
 
         anchors.fill: details
-        text: "6"
+        text: listSize - doneCount
 
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
@@ -60,7 +60,7 @@ BackgroundItem {
         width: parent.width - x - details.width
         height: 40
 
-        text: "3 of 9 done"
+        text: doneCount + " of " + listSize + " done"
 
         verticalAlignment: Text.AlignVCenter
         font.pixelSize: Theme.fontSizeTiny

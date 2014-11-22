@@ -20,7 +20,7 @@ public:
     ListCollection();
     ~ListCollection();
 
-    Q_INVOKABLE void createNewList
+    Q_INVOKABLE const TaskList *createAndAddNewList
             ( const QString &name
             , const QColor &color
             );
@@ -36,6 +36,8 @@ public:
     inline QObject *activeList() const { return _activeList; }
 
     const TaskList *at(int index) const;
+    const TaskList *byId(entityid_t id) const;
+    int indexOf(entityid_t id) const { return _order.indexOf(id); }
 
     inline int size() const { return _lists.size(); }
 

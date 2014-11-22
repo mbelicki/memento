@@ -19,7 +19,7 @@ ListCollection::~ListCollection()
     _lists.clear();
 }
 
-void ListCollection::createNewList
+const TaskList *ListCollection::createAndAddNewList
     ( const QString &name
     , const QColor &color
     )
@@ -30,6 +30,7 @@ void ListCollection::createNewList
         _lists.insert(id, list);
         _order.add(id);
     }
+    return list;
 }
 
 void ListCollection::createNewItemInList
@@ -79,6 +80,14 @@ const TaskList *ListCollection::at(int index) const
 
     entityid_t id = _order.at(index);
     return _lists[id];
+}
+
+const TaskList *ListCollection::byId(entityid_t id) const
+{
+    const TaskList *result = NULL;
+    if (_lists.contains(id))
+        result = _lists[id];
+    return result;
 }
 
 QList<QObject *> ListCollection::getOrderedLists() const

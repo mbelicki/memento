@@ -20,6 +20,7 @@ public:
 
     void add(entityid_t newId);
     entityid_t at(int i) const;
+    int indexOf(entityid_t id) const;
 
 private:
     orderingmode_t _mode;

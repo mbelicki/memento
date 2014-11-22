@@ -6,6 +6,7 @@ Page {
     id: page
 
     property var model
+    property int openCount: model.size - model.doneCount
 
     SilicaListView {
         id: listView
@@ -15,7 +16,9 @@ Page {
 
         header: PageHeader {
             title: page.model.name
-            description: "6 open tasks (3 done, 9 total)"
+            description: page.openCount + qsTr(" open tasks (")
+                         + page.model.doneCount + qsTr(" done, ")
+                         + page.model.size + qsTr(" total)")
         }
 
         delegate: Memento.ItemsListDelegate {

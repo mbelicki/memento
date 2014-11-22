@@ -29,6 +29,18 @@
         <source>Add Item</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source> open tasks (</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> done, </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> total)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ListsListPage</name>
