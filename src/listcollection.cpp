@@ -47,7 +47,7 @@ void ListCollection::createNewItemInList
     if (_lists.contains(listId) == false)
         return;
 
-    Item *item = new Item(getNextId(), itemName);
+    Item *item = new Item(getNextId(), itemName, false);
     _items[item->id()] = item;
     _lists[listId]->addItem(item);
 
@@ -121,4 +121,22 @@ entityid_t ListCollection::getNextId()
     entityid_t id = _nextId;
     _nextId++;
     return id;
+}
+
+bool ListCollection::insertList
+        (entityid_t id, const QString &name, const QColor &color)
+{
+    TaskList *list = new (std::nothrow) TaskList(id, name, color);
+    if (list != NULL) {
+        _lists.insert(id, list);
+        _order.add(id);
+    }
+}
+
+bool ListCollection::insertItem
+        (entityid_t id, const QString &name, bool done, entityid_t parentId)
+{
+    Item *item = new Item(id, name, done);
+    _items[item->id()] = item;
+    _lists[parentId]->addItem(item);
 }

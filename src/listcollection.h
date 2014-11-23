@@ -16,6 +16,8 @@ class ListCollection : public QObject
 
     Q_PROPERTY(QObject* activeList READ activeList NOTIFY activeListChanged)
 
+    friend class DataBasePersistence;
+
 public:
     ListCollection();
     ~ListCollection();
@@ -45,6 +47,14 @@ public:
 
 signals:
     void activeListChanged();
+
+protected:
+    /* interface for persistence classes */
+    bool insertList(entityid_t id, const QString &name, const QColor &color);
+    bool insertItem(entityid_t id, const QString &name, bool done, entityid_t parentId);
+
+    inline void setLastId(entityid_t id) {  _nextId = id + 1;}
+    inline bool lastId() const { return _nextId - 1; }
 
 private:
     QHash<entityid_t, TaskList *> _lists;

@@ -33,7 +33,7 @@ BackgroundItem {
         anchors.left: colorBar.right
 
         color: itemDone ? delegate.color : Theme.highlightColor
-        opacity: (1 - index / listView.count) * 0.1
+        opacity: (1 - index / listView.count) * (itemDone ? 0.4 : 0.1)
     }
 
 
@@ -51,6 +51,6 @@ BackgroundItem {
         anchors.left: details.right
         anchors.margins: Theme.paddingMedium
         color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
-        opacity: itemDone ? 0.6 : 1
+        opacity: itemDone ? 0.4 : 1
     }
 }

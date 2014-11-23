@@ -14,6 +14,8 @@ Page {
     }
 
     function createDefaultListName() {
+        console.log("DATA PATH: " + StandardPaths.data)
+
         var date = new Date()
         var month = monthToString(date.getMonth())
         return month + " " + date.getDate()

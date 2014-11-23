@@ -14,12 +14,15 @@ TARGET = memento
 
 CONFIG += sailfishapp
 
+QT += sql
+
 SOURCES += src/memento.cpp \
     src/tasklist.cpp \
     src/ordering.cpp \
     src/listcollection.cpp \
     src/listslistmodel.cpp \
-    src/itemslistmodel.cpp
+    src/itemslistmodel.cpp \
+    src/databasepersistence.cpp
 
 OTHER_FILES += qml/memento.qml \
     qml/cover/CoverPage.qml \
@@ -48,5 +51,6 @@ HEADERS += \
     src/ordering.h \
     src/listcollection.h \
     src/listslistmodel.h \
-    src/itemslistmodel.h
+    src/itemslistmodel.h \
+    src/databasepersistence.h
 

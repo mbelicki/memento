@@ -9,7 +9,6 @@ CoverBackground {
         text: qsTr("Memento")
 
         anchors.fill: parent
-        height: rowHeight
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         color: Theme.highlightColor

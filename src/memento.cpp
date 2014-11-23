@@ -36,6 +36,7 @@
 
 #include "listcollection.h"
 #include "listslistmodel.h"
+#include "databasepersistence.h"
 
 int main(int argc, char *argv[])
 {
@@ -52,6 +53,9 @@ int main(int argc, char *argv[])
 
     ListCollection model;
     ListsListModel wrapper(&model);
+    DataBasePersistence persistence;
+
+    persistence.loadData(&model);
 
     QGuiApplication *app = SailfishApp::application(argc, argv);
     QQuickView *view = SailfishApp::createView();
@@ -65,6 +69,10 @@ int main(int argc, char *argv[])
 
     view->show();
 
-    return app->exec();
+    int result = app->exec();
+
+    persistence.saveData(model);
+
+    return result;
 }
 

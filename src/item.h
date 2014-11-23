@@ -9,10 +9,10 @@
 class Item
 {
 public:
-    Item(entityid_t id, const QString &name)
+    Item(entityid_t id, const QString &name, bool done)
         : _id(id)
         , _name(name)
-        , _done(false)
+        , _done(done)
     {}
 
     Item(const Item &item)
