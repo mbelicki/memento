@@ -53,8 +53,8 @@ protected:
     bool insertList(entityid_t id, const QString &name, const QColor &color);
     bool insertItem(entityid_t id, const QString &name, bool done, entityid_t parentId);
 
-    inline void setLastId(entityid_t id) {  _nextId = id + 1;}
-    inline bool lastId() const { return _nextId - 1; }
+    inline void setLastId(entityid_t id) { _nextId = id;}
+    inline entityid_t lastId() const { return _nextId; }
 
 private:
     QHash<entityid_t, TaskList *> _lists;

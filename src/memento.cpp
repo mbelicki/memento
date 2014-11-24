@@ -52,10 +52,10 @@ int main(int argc, char *argv[])
     //return SailfishApp::main(argc, argv);
 
     ListCollection model;
-    ListsListModel wrapper(&model);
     DataBasePersistence persistence;
-
     persistence.loadData(&model);
+
+    ListsListModel wrapper(&model);
 
     QGuiApplication *app = SailfishApp::application(argc, argv);
     QQuickView *view = SailfishApp::createView();

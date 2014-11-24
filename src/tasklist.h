@@ -21,7 +21,7 @@ class TaskList : public QObject
 
 public:
     TaskList(entityid_t id, const QString &name, const QColor &color);
-    ~TaskList();
+    ~TaskList() {}
 
     inline entityid_t id() const { return _id; }
     inline const QString &name() const { return _name; }

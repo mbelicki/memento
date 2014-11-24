@@ -10,19 +10,19 @@ TaskList::TaskList(entityid_t id, const QString &name, const QColor &color)
 {
 }
 
-TaskList::~TaskList()
-{
-   /* delete items */
-}
-
 bool TaskList::addItem(const Item *item)
 {
-    if (item == NULL) return false;
+    M_CHECK_PTR_ARG(item, false)
 
     const entityid_t id = item->id();
     _items.insert(id, item);
     _order.add(id);
     emit sizeChanged(_id);
+
+    if (item->isDone()) {
+        _doneCount += 1;
+        emit doneCountChanged(_id);
+    }
 
     return true;
 }

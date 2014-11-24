@@ -136,7 +136,13 @@ bool ListCollection::insertList
 bool ListCollection::insertItem
         (entityid_t id, const QString &name, bool done, entityid_t parentId)
 {
-    Item *item = new Item(id, name, done);
+    Item *item = new (std::nothrow) Item(id, name, done);
+    if (item == NULL) return false;
+
     _items[item->id()] = item;
-    _lists[parentId]->addItem(item);
+
+    TaskList *list = _lists[parentId];
+    if (list == NULL) return false;
+
+    list->addItem(item);
 }
