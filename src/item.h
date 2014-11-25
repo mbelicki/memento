@@ -27,30 +27,53 @@
 #include <QString>
 #include <QDateTime>
 
+namespace ItemFlags {
+    enum itemflags_t
+        { NONE = 0
+        , DONE = 1
+        , IMPORTANT = 2
+        , URGENT = 4
+        };
+}
+
 class Item
 {
 public:
-    Item(entityid_t id, const QString &name, bool done)
+    Item(entityid_t id, const QString &name, unsigned int flags)
         : _id(id)
         , _name(name)
-        , _done(done)
+        , _flags(flags)
     {}
 
     Item(const Item &item)
         : _id(item._id)
         , _name(item._name)
-        , _done(item._done)
+        , _flags(item._flags)
     {}
 
     inline entityid_t id() const { return _id; }
     inline const QString &name() const { return _name; }
-    inline bool isDone() const { return _done; }
-    inline void setDone(bool value) { _done = value; }
+    inline bool isDone() const { return 0 != (_flags & ItemFlags::DONE); }
+    inline bool isImportant() const { return 0 != (_flags & ItemFlags::IMPORTANT); }
+    inline bool isUrgent() const { return 0 != (_flags & ItemFlags::URGENT); }
+
+    inline bool setDone(bool value) {
+        _flags = toggle_flag(_flags, ItemFlags::DONE, value);
+    }
+    inline bool setImportant(bool value) {
+        _flags = toggle_flag(_flags, ItemFlags::IMPORTANT, value);
+    }
+    inline bool setUrgent(bool value) {
+        _flags = toggle_flag(_flags, ItemFlags::URGENT, value);
+    }
+
+    inline unsigned int flags() const { return _flags; }
+    inline void setFlags(int value) { _flags = value; }
 
 private:
     const entityid_t _id;
     const QString _name;
-    bool _done;
+    unsigned int _flags;
 };
 
 #endif // ITEM_H

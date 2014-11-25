@@ -64,6 +64,8 @@ private:
         { NameRole = Qt::UserRole + 1
         , IdRole
         , DoneRole
+        , ImportantRole
+        , UrgentRole
         };
 
     TaskList *_list;

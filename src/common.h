@@ -32,6 +32,14 @@ static inline void memento_log(const char *msg) { qDebug() << msg; }
         return (ret); \
     }
 
+static inline unsigned int toggle_flag
+        (unsigned int variable, unsigned int flag, bool value) {
+    if (value)
+        return variable | flag;
+    else
+        return variable & ~flag;
+}
+
 typedef unsigned int entityid_t;
 
 static const entityid_t INVALID_ID = 0;

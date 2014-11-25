@@ -38,6 +38,8 @@ QHash<int, QByteArray> ItemsListModel::roleNames() const
     result[NameRole] = "name";
     result[IdRole] = "itemId";
     result[DoneRole] = "itemDone";
+    result[ImportantRole] = "itemImportant";
+    result[UrgentRole] = "itemUrgent";
     return result;
 }
 
@@ -57,6 +59,12 @@ QVariant ItemsListModel::data(const QModelIndex &index, int role) const
             break;
         case DoneRole:
             result.setValue(item->isDone());
+            break;
+        case ImportantRole:
+            result.setValue(item->isImportant());
+            break;
+        case UrgentRole:
+            result.setValue(item->isUrgent());
             break;
         }
     }

@@ -30,7 +30,8 @@
 static const char *const NEXT_ID_KEY = "next_id";
 
 /* TODO: automatically check if all columns are present before loading,
- * add missing ones otherwise */
+ * add missing ones otherwise. Use: PRAGMA table_info('table_name')
+ * to get column names */
 struct column_t {
     const char *name;
     const char *type;
@@ -112,7 +113,7 @@ static bool insertTask(QSqlQuery *query, const Item* task, entityid_t listId) {
     query->prepare("INSERT OR REPLACE INTO tasks VALUES(:id, :name, :status, :listId)");
     query->bindValue(":id", task->id());
     query->bindValue(":name", task->name());
-    query->bindValue(":status", task->isDone());
+    query->bindValue(":status", task->flags());
     query->bindValue(":listId", listId);
 
     bool result = query->exec();
