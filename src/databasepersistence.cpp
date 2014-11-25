@@ -29,6 +29,26 @@
 
 static const char *const NEXT_ID_KEY = "next_id";
 
+/* TODO: automatically check if all columns are present before loading,
+ * add missing ones otherwise */
+struct column_t {
+    const char *name;
+    const char *type;
+};
+
+const column_t LISTS_COLUMNS[]
+    = { {"id", "INT PRIMATY KEY"}
+      , {"name", "VARCHAR(256)"}
+      , {"color", "VARCHAR(16)"}
+      };
+
+const column_t TASKS_COLUMNS[]
+    = { {"id", "INT PRIMATY KEY"}
+      , {"name", "VARCHAR(256)"}
+      , {"status", "INT"}
+      , {"list_id", "INT"}
+      };
+
 inline static void logSqlError(const QSqlError &error, const char *message) {
     qCritical() << message << error.databaseText() << error.driverText();
 }
