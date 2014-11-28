@@ -28,6 +28,8 @@ BackgroundItem {
     height: 90
     width: parent.width
 
+    property int __undoneCount: listSize - doneCount
+
     Memento.TransparetGradient {
         anchors.fill: parent
         color: Theme.highlightColor
@@ -47,10 +49,10 @@ BackgroundItem {
     }
 
     Text {
-        id: taskNumer
+        id: taskNumber
 
         anchors.fill: details
-        text: listSize - doneCount
+        text: __undoneCount
 
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
@@ -71,6 +73,7 @@ BackgroundItem {
         verticalAlignment: Text.AlignVCenter
         font.pixelSize: Theme.fontSizeMedium
         color: Theme.primaryColor
+        opacity: __undoneCount > 0 ? 1 : 0.4
     }
 
     Text {
