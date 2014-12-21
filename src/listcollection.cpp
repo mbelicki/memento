@@ -63,12 +63,13 @@ const TaskList *ListCollection::createAndAddNewList
 void ListCollection::createNewItemInList
             (entityid_t listId
             , const QString &itemName
+            , unsigned int itemFlags
             )
 {
     if (_lists.contains(listId) == false)
         return;
 
-    Item *item = new Item(getNextId(), itemName, false);
+    Item *item = new Item(getNextId(), itemName, itemFlags);
     _items[item->id()] = item;
     _lists[listId]->addItem(item);
 
@@ -156,9 +157,9 @@ bool ListCollection::insertList
 }
 
 bool ListCollection::insertItem
-        (entityid_t id, const QString &name, bool done, entityid_t parentId)
+        (entityid_t id, const QString &name, unsigned int flags, entityid_t parentId)
 {
-    Item *item = new (std::nothrow) Item(id, name, done);
+    Item *item = new (std::nothrow) Item(id, name, flags);
     if (item == NULL) return false;
 
     _items[item->id()] = item;

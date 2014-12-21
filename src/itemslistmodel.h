@@ -45,7 +45,7 @@ public:
     QVariant data(const QModelIndex &index, int role) const;
     QHash<int, QByteArray> roleNames() const;
 
-    Q_INVOKABLE void createItem(const QString &name);
+    Q_INVOKABLE void createItem(const QString &name, bool isUrgent, bool isImportant);
     Q_INVOKABLE void setChecked(int index, bool value);
 
     inline const QString &name() const { return _list->name(); }

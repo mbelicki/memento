@@ -296,9 +296,9 @@ bool DataBasePersistence::loadTasks
     while (query->next()) {
         const entityid_t id = (entityid_t)query->value(idIndex).toLongLong();
         const QString name = query->value(nameIndex).toString();
-        const int status = query->value(statusIndex).toInt();
+        const int status = query->value(statusIndex).toUInt();
         const entityid_t parent = (entityid_t)query->value(parentIndex).toLongLong();
-        model->insertItem(id, name, status > 0, parent);
+        model->insertItem(id, name, status, parent);
     }
     return true;
 }

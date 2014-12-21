@@ -30,7 +30,7 @@ BackgroundItem {
 
     property int __undoneCount: listSize - doneCount
 
-    Memento.TransparetGradient {
+    Memento.TransparentGradient {
         anchors.fill: parent
         color: Theme.highlightColor
         maxOpacity: 0.07

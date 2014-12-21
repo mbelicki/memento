@@ -37,7 +37,7 @@ OTHER_FILES += qml/memento.qml \
     qml/pages/ItemsListPage.qml \
     qml/components/ItemsListDelegate.qml \
     qml/components/CreateItemDialog.qml \
-    qml/components/TransparetGradient.qml
+    qml/components/TransparentGradient.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line

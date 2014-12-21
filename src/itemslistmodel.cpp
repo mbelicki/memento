@@ -72,11 +72,22 @@ QVariant ItemsListModel::data(const QModelIndex &index, int role) const
     return result;
 }
 
-void ItemsListModel::createItem(const QString &name)
+static unsigned int createItemFlags(bool isUrgent, bool isImportant) {
+    unsigned int result = ItemFlags::NONE;
+
+    if (isUrgent)    result |= ItemFlags::URGENT;
+    if (isImportant) result |= ItemFlags::IMPORTANT;
+
+    return result;
+}
+
+void ItemsListModel::createItem
+        (const QString &name, bool isUrgent, bool isImportant)
 {
     int index = _list->size();
     beginInsertRows(QModelIndex(), index, index);
-    _collection->createNewItemInList(_list->id(), name);
+    unsigned int flags = createItemFlags(isUrgent, isImportant);
+    _collection->createNewItemInList(_list->id(), name, flags);
     endInsertRows();
 
     emit sizeChanged();

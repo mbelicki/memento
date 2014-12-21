@@ -68,7 +68,7 @@ public:
     }
 
     inline unsigned int flags() const { return _flags; }
-    inline void setFlags(int value) { _flags = value; }
+    inline void setFlags(unsigned int value) { _flags = value; }
 
 private:
     const entityid_t _id;

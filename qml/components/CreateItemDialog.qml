@@ -24,6 +24,9 @@ import Sailfish.Silica 1.0
 
 Dialog {
     property string name
+    property bool urgent
+    property bool important
+
     canAccept: !!nameField.text
 
     Column {
@@ -45,6 +48,16 @@ Dialog {
             EnterKey.enabled: text.length > 0
             EnterKey.iconSource: "image://theme/icon-m-enter-accept"
             EnterKey.onClicked: accept()
+        }
+
+        TextSwitch {
+            text: "urgent"
+            onCheckedChanged: urgent = checked
+        }
+
+        TextSwitch {
+            text: "important"
+            onCheckedChanged: important = checked
         }
     }
 

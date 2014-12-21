@@ -46,8 +46,9 @@ public:
             , const QColor &color
             );
     Q_INVOKABLE void createNewItemInList
-            ( entityid_t listId
+            (entityid_t listId
             , const QString &itemName
+            , unsigned int itemFlags
             );
 
     Q_INVOKABLE bool setActiveList(unsigned int /*entityid_t*/ id);
@@ -69,7 +70,7 @@ signals:
 protected:
     /* interface for persistence classes */
     bool insertList(entityid_t id, const QString &name, const QColor &color);
-    bool insertItem(entityid_t id, const QString &name, bool done, entityid_t parentId);
+    bool insertItem(entityid_t id, const QString &name, unsigned int flags, entityid_t parentId);
 
     inline void setLastId(entityid_t id) { _nextId = id;}
     inline entityid_t lastId() const { return _nextId; }

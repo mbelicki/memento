@@ -56,7 +56,7 @@ Page {
                 onClicked: {
                     var dialog = pageStack.push("../components/CreateItemDialog.qml")
                     dialog.accepted.connect(function() {
-                        page.model.createItem(dialog.name)
+                        page.model.createItem(dialog.name, dialog.urgent, dialog.important)
                     })
                 }
             }

@@ -31,7 +31,7 @@ BackgroundItem {
     height: 90
     width: parent.width
 
-    Memento.TransparetGradient {
+    Memento.TransparentGradient {
         anchors.fill: parent
         color: Theme.highlightColor
         maxOpacity: 0.07
@@ -67,11 +67,22 @@ BackgroundItem {
     }
 
     Label {
+        id: nameLabel
         text: name
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: details.right
         anchors.margins: Theme.paddingMedium
         color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
         opacity: itemDone ? 0.4 : 1
+    }
+
+    Label {
+        anchors.top: nameLabel.baseline
+        anchors.left: nameLabel.left
+        text: (itemUrgent ? "urgent " : "") + (itemImportant ? "important" : "")
+        color: Theme.highlightColor
+        opacity: itemDone ? 0.4 : 1
+        visible: itemUrgent || itemImportant
+        font.pixelSize: Theme.fontSizeTiny
     }
 }
