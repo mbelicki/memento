@@ -57,13 +57,13 @@ public:
     inline bool isImportant() const { return 0 != (_flags & ItemFlags::IMPORTANT); }
     inline bool isUrgent() const { return 0 != (_flags & ItemFlags::URGENT); }
 
-    inline bool setDone(bool value) {
+    inline void setDone(bool value) {
         _flags = toggle_flag(_flags, ItemFlags::DONE, value);
     }
-    inline bool setImportant(bool value) {
+    inline void setImportant(bool value) {
         _flags = toggle_flag(_flags, ItemFlags::IMPORTANT, value);
     }
-    inline bool setUrgent(bool value) {
+    inline void setUrgent(bool value) {
         _flags = toggle_flag(_flags, ItemFlags::URGENT, value);
     }
 

@@ -35,8 +35,6 @@ class ListCollection : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QObject* activeList READ activeList NOTIFY activeListChanged)
-
     friend class DataBasePersistence;
 
 public:
@@ -56,7 +54,6 @@ public:
     Q_INVOKABLE QObject *createListModel(unsigned int id);
 
     Q_INVOKABLE QList<QObject *> getOrderedLists() const;
-    inline QObject *activeList() const { return _activeList; }
 
     const TaskList *at(int index) const;
     const TaskList *byId(entityid_t id) const;

@@ -152,6 +152,7 @@ bool ListCollection::insertList
         _lists.insert(id, list);
         _order.add(id);
     }
+    return true;
 }
 
 bool ListCollection::insertItem
@@ -166,4 +167,5 @@ bool ListCollection::insertItem
     if (list == NULL) return false;
 
     list->addItem(item);
+    return true;
 }
