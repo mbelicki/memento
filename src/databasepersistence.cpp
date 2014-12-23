@@ -257,7 +257,7 @@ bool DataBasePersistence::loadLists
     M_CHECK_PTR_ARG(query, false)
     M_CHECK_PTR_ARG(model, false)
 
-    const bool selectResult = query->exec("SELECT * FROM lists");
+    const bool selectResult = query->exec("SELECT * FROM lists ORDER BY id ASC");
     if (selectResult == false) {
         logSqlError(query->lastError(), "Failed to select data from 'lists':");
         return false;
@@ -282,7 +282,7 @@ bool DataBasePersistence::loadTasks
     M_CHECK_PTR_ARG(query, false)
     M_CHECK_PTR_ARG(model, false)
 
-    const bool selectResult = query->exec("SELECT * FROM tasks");
+    const bool selectResult = query->exec("SELECT * FROM tasks ORDER BY id ASC");
     if (selectResult == false) {
         logSqlError(query->lastError(), "Failed to select data from 'tasks':");
         return false;
